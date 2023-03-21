@@ -4,8 +4,9 @@ public class main_misc {
 
 	public static void main(String[] args) {
 		//
-    int[]v = {3,2,4,1,5};
-    int []l = l_perm(v,3);
+    //int[]v = {3,2,4,1,5};
+	int []v = {4,3,1,2};
+    int []l = l_perm(v,1);
     for(int i = 0;i < l.length;i++){
     	System.out.print(l[i]);
     }
@@ -35,10 +36,19 @@ public class main_misc {
 	}
 	public static int[] l_perm(int[]v,int b){
 		//
-		for(int i = 0;i < b;i++) {
+		int c = 0;
+		for(int i = 0;i < v.length;i++) {
 			//
+			if(c == b) {
+				break;
+			}
 			int m = max(v,i);
+			if(m == i) {
+				//m is on the spot that it should be so we dont count that as a swap
+				continue;
+			}
 			swap(v,m,i);
+			c++;
 		}
 		return v;
 	}
